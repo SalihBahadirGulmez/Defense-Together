@@ -18,7 +18,7 @@ public class CreepAI : MonoBehaviour
     private float totalRadiusPlayer;
     private Stats statsScript;
     private Vector3 targetPoint;
-    public GameObject targetObj; //basicAtacktan eriþiliyor o yüzden public olmalý
+    public GameObject targetObj; //basicAttacktan eriþiliyor o yüzden public olmalý
     private Animator creepAnimation;
 
     public GameObject player;

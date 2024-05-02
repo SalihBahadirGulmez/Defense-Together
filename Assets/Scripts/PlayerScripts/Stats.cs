@@ -75,6 +75,7 @@ public class Stats : MonoBehaviour
         {
             RegenerateMana();
         }
+        if (gameObject.tag == "Player") Debug.Log(character.healthRegen);
     }
     public void TakeDamage(int _damage, GameObject _player = null)//basicAtack ve projectileMovement ta kullanýlýyor
     {
@@ -90,6 +91,7 @@ public class Stats : MonoBehaviour
     {
         for (int i = 0; i < duration; i++)
         {
+            if(character.currentHealth <= 0) break;
             TakeDamage(damage, attacker);
             yield return new WaitForSecondsRealtime(1);
         }

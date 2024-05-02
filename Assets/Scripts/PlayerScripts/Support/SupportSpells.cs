@@ -9,29 +9,29 @@ public class SupportSpells : MonoBehaviour
     public ParticleSystem spell1;
     public Animator spell1ColliderAnimator;
     private AnimationClip spell1Colliderclip;
-    public Spell ability1 = new Spell("Magical", 50, 50, 10, 0, 3f);
+    public Spell ability1 = new Spell("Magical", 500, 50, 10, 0, 3f);
 
     [Header("Ability 2")]
     public ParticleSystem spell2;
     public Animator spell2ColliderAnimator;
     private AnimationClip spell2Colliderclip;
-    public Spell ability2 = new Spell("Magical", 3, 60, 12, 0.5f, 10f);
+    public Spell ability2 = new Spell("Magical", 100, 60, 12, 0.5f, 10f);
 
     [Header("Ability 3")]
     public ParticleSystem spell3;
     public Animator spell3ColliderAnimator;
-
     private AnimationClip spell3Colliderclip;
-    public Spell ability3 = new Spell("Magical", 0, 20, 12, 10, 10f);
+    public GameObject spell3Particle;
+    public GameObject spell3ColliderParent;
+    public GameObject ability3Indicator;
+    public Spell ability3 = new Spell("Magical", 0, 0, 1, 10, 10f);// 20, 12,
 
     [Header("Ability 4")]
     public Spell ability4 = new Spell("None", 0, 0, 0, 0, 0);
 
 
     public Abilities abilitiesScript;
-    public GameObject spell3Particle;
-    public GameObject spell3Collider;
-    public GameObject ability3Indicator;
+
 
 
 
@@ -89,19 +89,20 @@ public class SupportSpells : MonoBehaviour
     }
     IEnumerator Ability3SetParent()
     {
+        spell3ColliderParent.transform.SetParent(null);
+        spell3ColliderParent.transform.position = abilitiesScript.spell3CanvasLastPos;
+
         abilitiesScript.spell3CanvasLastPos.y += 1;
         spell3Particle.transform.SetParent(null);
         spell3Particle.transform.position = abilitiesScript.spell3CanvasLastPos;
-        spell3Collider.transform.SetParent(null);
-        spell3Collider.transform.position = abilitiesScript.spell3CanvasLastPos;
 
         spell3ColliderAnimator.SetBool("Skill3", true);
-        yield return new WaitForSecondsRealtime(spell3Colliderclip.length - 0.1f);
+        yield return new WaitForSecondsRealtime(spell3Colliderclip.length);
         spell3ColliderAnimator.SetBool("Skill3", false);
 
         spell3Particle.transform.SetParent(ability3Indicator.transform);
-        spell3Collider.transform.SetParent(ability3Indicator.transform);
+        spell3ColliderParent.transform.SetParent(ability3Indicator.transform);
         spell3Particle.transform.position = ability3Indicator.transform.position;
-        spell3Collider.transform.position = ability3Indicator.transform.position;
+        spell3ColliderParent.transform.position = ability3Indicator.transform.position;
     }
 }

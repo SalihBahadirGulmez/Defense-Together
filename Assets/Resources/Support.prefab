@@ -13533,7 +13533,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8631865857462886950}
+  m_Father: {fileID: 7225743617318370079}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3507907511459022867
 BoxCollider:
@@ -13818,8 +13818,8 @@ MonoBehaviour:
   abilityImage3: {fileID: 0}
   abilityText3: {fileID: 0}
   ability3Key: 101
-  ability3Cooldown: 10
-  ability3manaCost: 30
+  ability3Cooldown: 1
+  ability3manaCost: 5
   ability3Canvas: {fileID: 0}
   ability3Indicator: {fileID: 0}
   ability3RangeIndicator: {fileID: 0}
@@ -13914,10 +13914,10 @@ MonoBehaviour:
   spell2ColliderAnimator: {fileID: 7627963999300743172}
   spell3: {fileID: 5396906781237355487}
   spell3ColliderAnimator: {fileID: 7096652829742156906}
-  abilitiesScript: {fileID: 8921448885525061960}
   spell3Particle: {fileID: 1953064899581029922}
-  spell3Collider: {fileID: 7716388038023895791}
+  spell3ColliderParent: {fileID: 8293727072051562044}
   ability3Indicator: {fileID: 7855006202651300604}
+  abilitiesScript: {fileID: 8921448885525061960}
 --- !u!136 &473262461727707663
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14053,7 +14053,7 @@ RectTransform:
   m_Children:
   - {fileID: 1456716825460510538}
   - {fileID: 5825616438336948076}
-  - {fileID: 4664102715940612710}
+  - {fileID: 7225743617318370079}
   m_Father: {fileID: 6941162213023304966}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -14505,6 +14505,42 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8293727072051562044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7225743617318370079}
+  m_Layer: 5
+  m_Name: Support Spell 3 Collider Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7225743617318370079
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8293727072051562044}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4664102715940612710}
+  m_Father: {fileID: 8631865857462886950}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8397611031869046694
 GameObject:
   m_ObjectHideFlags: 0

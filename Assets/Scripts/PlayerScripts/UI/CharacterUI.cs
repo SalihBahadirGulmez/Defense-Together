@@ -12,10 +12,8 @@ public class CharacterUI : MonoBehaviour
     private Stats statsScript;
 
     public Text manaText2D;
-    private float tempMana;
 
     public Text healthText2D;
-    private float tempHealth;
     // Start is called before the first frame update
     void Start()
     {
