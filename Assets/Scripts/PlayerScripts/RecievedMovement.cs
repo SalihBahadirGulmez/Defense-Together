@@ -11,6 +11,7 @@ public class RecievedMovement : MonoBehaviour
     NavMeshAgent agent;
     bool needPath = true;
     List<Vector3> _path = new List<Vector3>();
+    Camera _mainCam;
 
     private int maxCornetLength = 0;
     private Quaternion rotationToLookAt;
@@ -21,7 +22,6 @@ public class RecievedMovement : MonoBehaviour
 
     private Ray ray;
     private RaycastHit hit;
-    private bool hasHit;
     private float totalRadius;
 
     public GameObject targetObj;
@@ -48,6 +48,7 @@ public class RecievedMovement : MonoBehaviour
     {
         layerMask = 1 << layerNumber;
         agent = gameObject.GetComponent<NavMeshAgent>();
+        _mainCam = gameObject.GetComponent<Camera>();
         agent.updatePosition = false;
         agent.updateRotation = false;
         tempPath = transform.position;
@@ -119,9 +120,8 @@ public class RecievedMovement : MonoBehaviour
                 _path.Clear();
                 agent.ResetPath();
             }
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            hasHit = Physics.Raycast(ray, out hit, Mathf.Infinity, ~layerMask);
-            if (hasHit)
+            ray = _mainCam.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~layerMask))
             {
                 StopAllAnimations();
                 heroAnimation.SetBool("Run", true);
@@ -261,9 +261,8 @@ public class RecievedMovement : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 pressedButtonA = false;
-                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                hasHit = Physics.Raycast(ray, out hit, Mathf.Infinity, ~layerMask);
-                if (hasHit)
+                ray = _mainCam.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~layerMask))
                 {
                     heroAnimation.SetBool("Run", true);
 

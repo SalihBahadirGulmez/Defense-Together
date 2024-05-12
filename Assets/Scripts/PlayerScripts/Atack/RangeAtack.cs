@@ -9,7 +9,7 @@ public class RangeAtack : MonoBehaviour
     //private CreepAI creepAIScript; creplerin en yakýndaki hedefe saldýrdýðý script
     GameObject projectile;
 
-    private Vector3 projectilePos = new Vector3(-0.045f, 0.3f, 0.65f); 
+    private Vector3 projectilePos = new Vector3(-0.15f, 1, 2.15f); 
 
 
     //todo start fonksiyonunda swtich case gibi bir yapýyla üretilecek range atacklarýn prefablerini hero adýna crep adýna göre eþleþtir.
